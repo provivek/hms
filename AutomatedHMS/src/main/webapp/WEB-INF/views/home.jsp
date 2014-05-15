@@ -3,12 +3,13 @@
 <html>
 <head>
 	<title>Home</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../hms/staticResources/ext-4.0/resources/css/my-theme.css">
+    <script type="text/javascript" src="../hms/staticResources/ext-4.0/ext-debug.js"></script>
+    App Files
+	<link rel="stylesheet" type="text/css" href="../hms/staticResources/resources/css/app.css">
+    <script type="text/javascript" src="../hms/staticResources/packages/mainApp/app/app.js"></script> -->
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+<h1>HOME PAGE</h1>
 </body>
 </html>
