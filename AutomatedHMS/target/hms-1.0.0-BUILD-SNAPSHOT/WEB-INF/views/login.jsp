@@ -5,11 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HMS - Login</title>
-	<link rel="stylesheet" type="text/css" href="../../../ext-4.0/resources/css/my-theme.css">
-    <script type="text/javascript" src="../../../ext-4.0/ext-debug.js"></script>
+	<link rel="stylesheet" type="text/css" href="../hms/staticResources/ext/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script type="text/javascript" src="../hms/staticResources/ext/ext-debug.js"></script>
     <!-- App Files -->
-	<link rel="stylesheet" type="text/css" href="../../resources/css/app.css">
-    <script type="text/javascript" src="../../packages/loginApp/app/app.js"></script>
+    <script type="text/javascript" src="../hms/staticResources/packages/login/app.js"></script>
 </head>
 <body>
 </body>

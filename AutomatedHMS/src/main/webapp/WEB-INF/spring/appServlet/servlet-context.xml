@@ -21,6 +21,13 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.amity.hms" />
+	<context:component-scan base-package="com.amity.hms.controller" />
 	
+	<beans:bean id="hmsDao" class="com.amity.hms.dao.HmsDao"></beans:bean>
+	
+	<beans:bean id="hmsService" class="com.amity.hms.service.HmsService"></beans:bean>
+	
+	<!-- Configures Hibernate - Database Config -->
+	<beans:import resource="classpath:db-config.xml" />
+		
 </beans:beans>
