@@ -35,9 +35,7 @@ Ext.application({
 
 					xtype : 'form',
 					url: 'reg.user',
-					//margin : 5,
 					border : 0,
-					//padding : 5,
 					layout: 'anchor',
 				    defaults: {
 				        anchor : '60%',
@@ -95,16 +93,12 @@ Ext.application({
 				        fieldLabel: 'Your Mobile Number',
 				        name: 'studentMobile',
 				        blankText : 'Enter 10 digit mobile number',
-				        allowBlank: false,
-				        maxValue : 10,
-				        minValue : 10
+				        allowBlank: false
 				    },{
 				    	xtype : 'numberfield',
 				        fieldLabel: 'Parent Mobile Number',
 				        name: 'parentMobile',
-				        blankText : 'Enter 10 digit mobile number',
-				        maxValue : 10,
-				        minValue : 10
+				        blankText : 'Enter 10 digit mobile number'
 				    },{
 				        fieldLabel: 'Parent/Gaurdian e-mail ID',
 				        name: 'parentEmail',
@@ -131,9 +125,17 @@ Ext.application({
 				                form.submit({
 				                    success: function(form, action) {
 				                       Ext.Msg.alert('Success', action.result.msg);
+				                    	console.log(form);
+				                    	console.log(action);
+				                    	window.location.href = '/studentHome';
 				                    },
 				                    failure: function(form, action) {
-				                        Ext.Msg.alert('Failed', action.result.msg);
+				                    	Ext.Msg.alert('Failed', action.result.msg);
+				                    	console.log(form);
+				                    	console.log(action);
+				                    },
+				                    callback : function() {
+				                    	console.log('TEST CALLBACK');
 				                    }
 				                });
 				            }

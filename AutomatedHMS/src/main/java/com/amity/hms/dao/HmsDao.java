@@ -22,9 +22,14 @@ public class HmsDao {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public List<TestBean> getTest() {
 		DetachedCriteria criteria = DetachedCriteria.forClass(TestBean.class);
 		return hibernateTemplate.findByCriteria(criteria);
 		//return hibernateTemplate.findByCriteria(criteria, start, limit);
+	}
+	
+	public void save(Object object) {
+		hibernateTemplate.save(object);
 	}
 }
