@@ -53,6 +53,10 @@ public class HmsDao {
 		return hibernateTemplate.save(object);
 	}
 	
+	public void delete(Object obj) {
+		hibernateTemplate.delete(obj);
+	}
+	
 	public <T> Object getUser(Class<T> cls, String id) {
 		Object result = hibernateTemplate.get(cls, id);
 		return result;

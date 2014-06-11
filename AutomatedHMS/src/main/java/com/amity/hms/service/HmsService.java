@@ -51,6 +51,10 @@ public class HmsService {
 		return authBean;
 	}
 	
+	public void deleteOutpass(OutpassBean outpassBean) {
+		hmsDao.delete(outpassBean);
+	}
+	
 	public OutpassBean getOutpass(Integer outpassId) {
 		OutpassBean outpassBean = (OutpassBean) hmsDao.getOutpass(OutpassBean .class, outpassId);
 		return outpassBean;

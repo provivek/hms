@@ -72,6 +72,7 @@ Ext.application({
 			height : '100%',
 			items : [{
 				xtype : 'grid',
+				id : 'pending-warden-approval-grid',
 				title: 'Pending your approval',
 				margin : 20,
 				padding : 30,
@@ -114,14 +115,55 @@ Ext.application({
 			                tooltip: 'Approve',
 			                handler: function(grid, rowIndex, colIndex) {
 			                    var rec = grid.getStore().getAt(rowIndex);
-			                    alert("Edit " + rec.get('enrollNo'));
+			                    console.log(rec);
+			                    Ext.Ajax.request({
+			                    	url:'approveOutpass',
+			                    	params : {
+			                    		outpassId : rec.get('outpassId')
+			                    	},
+			                    	success:  function(response) {
+			                    		Ext.getCmp('pending-warden-approval-grid').getStore().load({
+			                    			params : {
+											outpassStatus : 'PA'
+										}});
+			                    		Ext.getCmp('new-outpass-grid').getStore().load({params : {
+											outpassStatus : 'NEW'
+										}});
+			                    		Ext.getCmp('history-outpass-grid').getStore().load({params : {
+											outpassStatus : 'WA'
+										}});
+			                    	},
+			                    	failure : function(response) {
+			                    		Ext.Msg.alert('Failure', 'Failure');
+			                    	}
+			                    });
 			                }
 			            },{
 			                icon: '/hms/staticResources/resources/images/reject.png',
 			                tooltip: 'Reject',
 			                handler: function(grid, rowIndex, colIndex) {
 			                    var rec = grid.getStore().getAt(rowIndex);
-			                    alert("Terminate " + rec.get('enrollNo'));
+			                    Ext.Ajax.request({
+			                    	url:'rejectOutpass',
+			                    	params : {
+			                    		outpassId : rec.get('outpassId')
+			                    	},
+			                    	success:  function(response) {
+			                    		Ext.getCmp('pending-warden-approval-grid').getStore().load({
+			                    			params : {
+											outpassStatus : 'PA'
+										}});
+			                    		Ext.getCmp('new-outpass-grid').getStore().load({params : {
+											outpassStatus : 'NEW'
+										}});
+			                    		Ext.getCmp('history-outpass-grid').getStore().load({params : {
+											outpassStatus : 'WA'
+										}});
+			                    	},
+			                    	failure : function(response) {
+			                    		Ext.Msg.alert('Failure', 'Failure');
+			                    	}
+			                    });
 			                }
 			            }]
 					}
@@ -129,6 +171,7 @@ Ext.application({
 			}, {
 				xtype : 'grid',
 				title: 'New Outpass',
+				id : 'new-outpass-grid',
 				margin : 20,
 				padding : 30,
 				maxHeight : 450,
@@ -168,6 +211,7 @@ Ext.application({
 			}, {
 				xtype : 'grid',
 				title: 'History of Outpasses',
+				id : 'history-outpass-grid',
 				margin : 20,
 				padding : 30,
 				maxHeight : 450,
