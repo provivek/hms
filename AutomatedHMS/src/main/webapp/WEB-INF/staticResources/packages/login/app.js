@@ -59,12 +59,12 @@ Ext.application({
 				    defaultType: 'textfield',
 				    items: [{
 				        fieldLabel: 'Enrollment Number',
-				        name: 'name',
+				        name: 'userId',
 				        allowBlank: false
 				    },{
 				    	inputType: 'password',
 				        fieldLabel: 'Password',
-				        name: 'pass',
+				        name: 'password',
 				        allowBlank: false
 				    }],
 				    buttons: [{
@@ -81,10 +81,11 @@ Ext.application({
 				            if (form.isValid()) {
 				                form.submit({
 				                    success: function(form, action) {
-				                       Ext.Msg.alert('Success', action.result.msg);
+				                    	location.href = '/hms'+action.result.redirectURL;
 				                    },
 				                    failure: function(form, action) {
-				                        Ext.Msg.alert('Failed', action.result.msg);
+				                        Ext.Msg.alert('Failed', action.result.message);
+				                        
 				                    }
 				                });
 				            }

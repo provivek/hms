@@ -2,6 +2,7 @@ package com.amity.hms.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
@@ -40,6 +41,14 @@ public class RegisterationController {
 			authBean.setEmailId(BeanUtils.getProperty(userBean, "studentEmail"));
 			authBean.setUserType("S");
 			hmsService.createAuthDetails(authBean);
+			HttpSession session = request.getSession();
+			if(session.isNew()) {
+				logger.info("New Session is created.");
+				session.setAttribute("user", userBean);
+			} else {
+				logger.info("Old Session.");
+				session.setAttribute("user", userBean);
+			}
 			view.addStaticAttribute("success", true);
 			view.addStaticAttribute("redirectURL", "studentHome");
 		} catch (Exception e) {

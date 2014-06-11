@@ -124,10 +124,10 @@ Ext.application({
 				            if (form.isValid()) {
 				                form.submit({
 				                    success: function(form, action) {
-				                       Ext.Msg.alert('Success', action.result.msg);
+				                       //Ext.Msg.alert('Success', action.result.msg);
 				                    	console.log(form);
 				                    	console.log(action);
-				                    	window.location.href = '/studentHome';
+				                    	window.location.href = '/hms/studentHome';
 				                    },
 				                    failure: function(form, action) {
 				                    	Ext.Msg.alert('Failed', action.result.msg);
